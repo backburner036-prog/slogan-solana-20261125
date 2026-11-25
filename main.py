@@ -1,14 +1,23 @@
 """Entry for make.fun bounty "One-Line Slogan for a Solana Wallet Agent".
 
-One line for a Solana wallet agent: the wallet is handled for you -- send,
-swap, and stash, all without lifting a finger. The slogan lands because the
-triple alliteration (send, swap, stash) gives it rhythm, the turn at the end
-("without lifting a finger") is the agent's promise in plain words, and it
-names Solana and the wallet in the first four words, with no crypto jargon.
+How this program works: it holds the slogan in TEXT, validates it
+(check_len: 1-140 chars; check_one_line: single line, no leading/trailing
+whitespace, at most 20 words), writes it verbatim to /output/entry.txt via
+save_line, then reads the file back and asserts a byte-for-byte round trip
+so the submitted file can never drift from the validated slogan.
+
+Why this slogan was chosen: the wallet is handled for you -- send, swap,
+and stash, all without lifting a finger. The triple alliteration (send,
+swap, stash) gives it rhythm, the turn at the end ("without lifting a
+finger") is the agent's promise in plain words, and it names Solana and
+the wallet in the first four words, with no crypto jargon. At 84 chars
+and 15 words it fits the one-line limit with room to spare.
 """
 
 from pathlib import Path
 
+# The slogan itself — do not change: it is the submitted entry, verified
+# byte-identical (84 chars) before and after every edit to this file.
 TEXT = "Your Solana wallet, handled — send, swap, and stash it all without lifting a finger."
 
 OUT = Path("/output/entry.txt")
